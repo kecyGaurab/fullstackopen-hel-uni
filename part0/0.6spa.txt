@@ -1,0 +1,12 @@
+Browser->Server:POST https://fullstackopen.com/new_note_spa
+note over Browser:
+The POST request to the address new_note_spa contains 
+the new note as JSON-data containing both the content
+of the note (content) and the timestamp (date)
+end note
+note over Server:
+The server responds with statuscode 201 created
+end note 
+note over Browser:
+The Javscript code fetched then creates new note and adds to the list
+end note 

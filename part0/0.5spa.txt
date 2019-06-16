@@ -1,0 +1,12 @@
+
+Browser->Server: GET request to https://fullstack-exampleapp.herokuapp.com/spa
+note over Server:
+Server responds with status code 200
+end note
+Server-->Browser: spa.html
+Browser->Server: GET request to https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: main.js
+Browser->Server: GET request to https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: main.css
+
+
