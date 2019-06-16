@@ -1,0 +1,22 @@
+browser->server: HTTP POST https://fullstackopen.com/new_note
+server-->browser:HTTP status 302(url redirect the server asks browser to do a new HTTP GET request)
+server-->browser:HTTP GET https://fullstackopen.com/notes
+note over browser:
+browser reloads Notes page
+end note 
+browser ->server:HTTP FETCH https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser:main.css
+browser->server:HTTP FETCH https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser:main.js
+browser->server:HTTP FETCH https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser:data.json
+note over server:
+data is sent as body of the POST-request
+server accesses the data with req.body field of request object req
+new note object is created by server which has notes array as well as date and time
+end note 
+note over browser:
+new note is added to document which has been created by the server on data.json
+end note
+
+
