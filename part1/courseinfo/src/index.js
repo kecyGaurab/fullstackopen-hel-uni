@@ -2,17 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Header = props => {
+ 
   return (
     <div>
       <p>{props.course}</p>
     </div>
-  );
-};
+
+  );}
+  
 
 const Part1 = props => {
+  console.log(props);
   return (
     <div>
-      <p><b>{props.parts[0].name}</b></p>
+      <p>
+        <b>{props.parts[0].name}</b>
+      </p>
       <p>Number of exercises:{props.parts[0].exercises}</p>
     </div>
   );
@@ -20,7 +25,9 @@ const Part1 = props => {
 const Part2 = props => {
   return (
     <div>
-      <p><b>{props.parts[1].name}</b></p>
+      <p>
+        <b>{props.parts[1].name}</b>
+      </p>
       <p>Number of exercises:{props.parts[1].exercises}</p>
     </div>
   );
@@ -28,7 +35,9 @@ const Part2 = props => {
 const Part3 = props => {
   return (
     <div>
-      <p><b>{props.parts[2].name}</b></p>
+      <p>
+        <b>{props.parts[2].name}</b>
+      </p>
       <p>Number of exercises:{props.parts[2].exercises}</p>
     </div>
   );
@@ -49,11 +58,11 @@ const Total = props => {
     <div>
       <p>
         <i>
-        Total exercises:{" "}
-        {props.parts[0].exercises +
-          props.parts[1].exercises +
-          props.parts[2].exercises}
-          </i>
+          Total exercises:{" "}
+          {props.parts[0].exercises +
+            props.parts[1].exercises +
+            props.parts[2].exercises}
+        </i>
       </p>
     </div>
   );
