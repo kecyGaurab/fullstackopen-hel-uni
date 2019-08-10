@@ -1,33 +1,75 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
+const Statistic = props => (
+  <tr>
+    <td>{props.text}</td>
+    <td>{props.value}</td>
+  </tr>
+);
+
+const Statistics = props => {
+  if (props.all === 0) {
+    return <div>No feedback given </div>;
+  }
+  return (
+    <div>
+      <table>
+        <tbody>
+          <Statistic text="good" value={props.good} />
+          <Statistic text="neutral" value={props.neutral} />
+          <Statistic text="bad" value={props.bad} />
+          <Statistic text="all" value={props.all} />
+          <Statistic text="average" value={props.average} />
+          <Statistic text="positive" value={props.positive} />
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+const Button = ({ onClick, text }) => (
+  <button onClick={onClick}> {text} </button>
+);
+
 const App = () => {
   // save clicks of each button to own state
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const all = good+neutral+bad;
-  const average = (good*1+neutral*0+bad*(-1))/(good+neutral+bad);
-  const positive = good/all*100;
+  const all = good + bad + neutral;
+  const average = ((good * 1 + bad * -1 + neutral * 0) / all).toFixed(2);
+  const positive = ((good * 100) / all).toFixed(2)+"%";
+  const handleGood = () => {
+    setGood(good + 1);
+  };
+  const handleNeutral = () => {
+    setNeutral(neutral + 1);
+  };
+  const handleBad = () => {
+    setBad(bad + 1);
+  };
 
   return (
     <div>
-      <h1>Give feedback</h1>
+      <h1> Give feedback </h1>
 
-      <button onClick={() => setGood(good + 1)}>good</button>
-
-      <button onClick={() => setNeutral(neutral + 1)}>neutral</button>
-
-      <button onClick={() => setBad(bad + 1)}>bad</button>
-
-      <h2>statistics</h2>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {all}</p>
-      <p>average {average}</p>
-      <p>positive feedbacks {positive} % </p>
-
+      <div>
+        <Button onClick={handleGood} text="good" />
+        <Button onClick={handleNeutral} text="neutral" />
+        <Button onClick={handleBad} text="bad" />
+      </div>
+      <h2>Statistics</h2>
+      <div>
+        <Statistics
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          all={all}
+          average={average}
+          positive={positive}
+        />
+      </div>
     </div>
   );
 };
