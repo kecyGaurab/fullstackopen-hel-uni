@@ -1,49 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+
 
 const App = () => {
-  const [ persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
-  ]) 
-  const [ newName, setNewName ] = useState('')
+  const [persons, setPersons] = useState([
+    {
+      name: "Arto Hellas"
+    }
+  ]);
+  const [newName, setNewName] = useState("");
 
-
-  // adds name to the 'persons' array 
-  const addName = (event) =>{
-    event.preventDefault(); // prevents the default action of form being submitted
+  const addName = event => {
+    event.preventDefault();
     const nameObj = {
       name: newName
+    };
+    //checks and filters if the name already exists in the persons array
+    const doesContactExist = persons.filter(
+      person => person.name === nameObj.name
+    );
+    //  if the returned array is not empty concatanates the name to the persons array
+    if (doesContactExist.length !== 0) {
+      window.confirm(`${newName} is already in the phonebook`);
+    } 
+    else {
+      setPersons(persons.concat(nameObj)); 
     }
-    setPersons(persons.concat(nameObj));
-    setNewName(' ') // empties the input field
-    
-  }
+  };
 
-  const handleNameChange = (event) => {
-    setNewName(event.target.value)}
+  //function to handle the onchange value of input
+  const handleNameChange = event => {
+    setNewName(event.target.value);
+  };
 
-  // maps persons array, adds name and renders the name
   const renderPerson = () => {
-    return(persons.map(person =>
-    <div key={person.name}>{person.name} </div>))
-  }
-  
+    return persons.map(person => (
+      <div key={person.name}>
+        <p>{person.name}</p>
+      </div>
+    ));
+  };
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addName} >
+      <h2>add a new</h2>
+      <form onSubmit={addName}>
         <div>
-          name: <input value={newName}
-          onChange={handleNameChange} />
+          name: <input value={newName} onChange={handleNameChange} />
         </div>
+
         <div>
           <button type="submit">add</button>
         </div>
       </form>
       <h2>Numbers</h2>
-      {renderPerson()}
+      <div>{renderPerson()}</div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
