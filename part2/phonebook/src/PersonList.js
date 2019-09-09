@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const PersonList = props => {
   const filter =  props.persons
     .filter(a => {
