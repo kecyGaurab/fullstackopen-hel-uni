@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-// import axios from 'axios';
 import Filter from './Filter';
 import PersonForm from './PersonForm';
 import PersonList from './PersonList';
@@ -33,11 +32,20 @@ const App = () => {
     } else if (doesContactExist.length !== 0) {
       window.confirm(`${newName} is already in the phonebook`);
     } else {
-      setPersons(persons.concat(nameObj));
+      numberService.create(nameObj).then(returnedName => {
+        setPersons(persons.concat(returnedName));
+      });
     }
-    numberService.create(nameObj).then(response => {
-      setPersons(persons.concat(response.data));
-    });
+  };
+
+  const deleteContact = id => {
+    const deleted = persons.filter(contact => contact.id !== id);
+    const contactToRemove = persons.find(n => n.id === id);
+    if (
+      window.confirm(`Are you sure you want to delete ${contactToRemove.name} ?`)
+    ) {
+      numberService.remove(id).then(setPersons(deleted));
+    }
   };
 
   const resetForm = () => {
@@ -68,7 +76,11 @@ const App = () => {
         addName={addName}
       />
       <h2>Numbers</h2>
-      <PersonList persons={persons} filteredName={filteredName} />
+      <PersonList
+        persons={persons}
+        filteredName={filteredName}
+        deleteContact={deleteContact}
+      />
     </div>
   );
 };
