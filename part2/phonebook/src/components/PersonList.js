@@ -9,9 +9,16 @@ const PersonList = props => {
       return a.name.toLowerCase().startsWith(props.filteredName.toLowerCase());
     })
     .map(person => (
-      <div key={person.id}>
-        {person.name} {person.number}
-        <button value={person.name} onClick={() => props.deleteContact(person.id,person.name)}>delete</button>
+      <div key={person.id} className="contact">
+        <span>
+          {person.name} {person.number}
+          <button
+            className="button"
+            value={person.name}
+            onClick={() => props.deleteContact(person.id, person.name)}>
+            <label>delete</label>
+          </button>
+        </span>
       </div>
     ));
   return <div>{filter}</div>;
