@@ -3,7 +3,7 @@ import React from "react";
 const PersonForm = props => {
   return (
     <div>
-    
+ 
       <form onSubmit={props.addName} onReset={props.resetForm}>
         <div>
           <div>
