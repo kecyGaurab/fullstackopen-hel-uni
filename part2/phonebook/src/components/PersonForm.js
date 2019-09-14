@@ -1,19 +1,22 @@
-import React from "react";
+import React from 'react';
 
 const PersonForm = props => {
   return (
     <div>
- 
-      <form onSubmit={props.addName} onReset={props.resetForm}>
+      <form className="form" onSubmit={props.addName} onReset={props.resetForm}>
         <div>
           <div>
-            
-             Name <input 
-              value={props.newName} 
-              onChange={props.handleNameChange} />
+            <label>Name</label>
+            <input
+              className="input"
+              value={props.newName}
+              onChange={props.handleNameChange}
+            />
           </div>
           <div>
-            Number <input
+            <label>Number</label>
+            <input
+              className="input"
               value={props.newNumber}
               onChange={props.handleNumberChange}
             />
@@ -21,8 +24,12 @@ const PersonForm = props => {
         </div>
 
         <div>
-         <button type="submit">add</button>
-          <button type="reset">clear</button>
+          <button class="add" type="submit">
+            add
+          </button>
+          <button class="clear" type="reset">
+            clear
+          </button>
         </div>
       </form>
     </div>
