@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import Filter from './Filter';
-import PersonForm from './PersonForm';
-import PersonList from './PersonList';
-import numberService from './services/numbers';
+import Filter from './components/Filter';
+import PersonForm from './components/PersonForm';
+import PersonList from './components/PersonList';
+import numberService from './components/numbers';
 
 const App = () => {
   const [persons, setPersons] = useState([]);
@@ -26,11 +26,22 @@ const App = () => {
     const doesContactExist = persons.filter(
       person => person.name === nameObj.name
     );
+
     //  if the returned array is not empty concatanates the name to the persons array
-    if (newName.length === 0) {
-      alert('Please enter name');
+    if (newName.length === 0 || newNumber.length === 0) {
+      alert('Please complete the fields');
     } else if (doesContactExist.length !== 0) {
-      window.confirm(`${newName} is already in the phonebook`);
+      const contactToUpdate = persons.find(n => n.name === nameObj.name);
+      const newObj = {...contactToUpdate, number: newNumber};
+
+      if (window.confirm(` ${newObj.name} is already in the phonebook, replace the old number with the new one?`))
+        numberService.update(newObj.id, newObj).then(response => {
+          setPersons(
+            persons.map(contact =>
+              contact.id !== newObj.id ? contact : response
+            )
+          );
+        });
     } else {
       numberService.create(nameObj).then(returnedName => {
         setPersons(persons.concat(returnedName));
@@ -42,7 +53,9 @@ const App = () => {
     const deleted = persons.filter(contact => contact.id !== id);
     const contactToRemove = persons.find(n => n.id === id);
     if (
-      window.confirm(`Are you sure you want to delete ${contactToRemove.name} ?`)
+      window.confirm(
+        `Are you sure you want to delete ${contactToRemove.name} ?`
+      )
     ) {
       numberService.remove(id).then(setPersons(deleted));
     }
