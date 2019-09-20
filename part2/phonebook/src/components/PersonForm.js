@@ -3,7 +3,7 @@ import React from 'react';
 const PersonForm = props => {
   return (
     <div>
-      <form className="form" onSubmit={props.addName} onReset={props.resetForm}>
+      <form className="form" onSubmit={props.handleSubmit} onReset={props.resetForm}>
         <div>
           <div>
             <label>Name</label>
@@ -24,10 +24,10 @@ const PersonForm = props => {
         </div>
 
         <div>
-          <button class="add" type="submit">
+          <button className="add" type="submit">
             add
           </button>
-          <button class="clear" type="reset">
+          <button className="clear" type="reset">
             clear
           </button>
         </div>

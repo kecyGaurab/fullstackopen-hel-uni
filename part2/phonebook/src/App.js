@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Filter from './components/Filter';
 import PersonForm from './components/PersonForm';
 import PersonList from './components/PersonList';
-import numberService from './components/numbers';
+import numberService from './services/numbers';
 import Notification from './components/notification';
 import ErrorNotification from './components/error-notification';
 import './App.css';
@@ -21,7 +21,7 @@ const App = () => {
     });
   }, []);
 
-  const addName = event => {
+  const handleSubmit = event => {
     event.preventDefault();
     const nameObj = {
       name: newName,
@@ -53,6 +53,8 @@ const App = () => {
                 contact.id !== newObj.id ? contact : response
               )
             );
+            setNewName('');
+            setNewNumber('');
             setMessage(`${newObj.name} has been updated`);
             setTimeout(() => {
               setMessage(null);
@@ -69,10 +71,13 @@ const App = () => {
     } else {
       numberService.create(nameObj).then(returnedName => {
         setPersons(persons.concat(returnedName));
+        setNewNumber('')
+        setNewName('')
         setMessage(`${nameObj.name} has been added to the phonebook`);
         setTimeout(() => {
           setMessage(null);
         }, 5000);
+
       });
     }
   };
@@ -116,7 +121,7 @@ const App = () => {
         resetForm={resetForm}
         handleNameChange={handleNameChange}
         handleNumberChange={handleNumberChange}
-        addName={addName}
+        handleSubmit={handleSubmit}
       />
       <h2>Numbers</h2>
       <PersonList
