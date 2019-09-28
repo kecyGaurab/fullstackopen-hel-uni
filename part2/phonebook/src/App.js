@@ -53,17 +53,13 @@ const App = () => {
                 contact.id !== newObj.id ? contact : response
               )
             );
-            setNewName('');
-            setNewNumber('');
             setMessage(`${newObj.name} has been updated`);
             setTimeout(() => {
               setMessage(null);
             }, 5000);
           })
-          .catch(error => {
-            setErrorMessage(
-              `${newObj.name} has already been removed from server`
-            );
+          .catch(error => {(
+            setErrorMessage(error.response.data.error));
             setTimeout(() => {
               setErrorMessage(null);
             }, 5000);
@@ -71,14 +67,32 @@ const App = () => {
     } else {
       numberService.create(nameObj).then(returnedName => {
         setPersons(persons.concat(returnedName));
-        setNewNumber('')
-        setNewName('')
+
         setMessage(`${nameObj.name} has been added to the phonebook`);
         setTimeout(() => {
           setMessage(null);
         }, 5000);
 
-      });
+      })
+      .catch(error => {
+        setErrorMessage(
+          error.response.data.error
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+      
+      })
+
+
+      // .catch(error =>{
+      //   // console.log('the error is as :',error.response.data.error)
+      //   setErrorMessage(error.response.data.error)
+      //   setTimeout(() => {
+      //   setMessage(null);
+      //   }, 5000)})
+      
+      
     }
   };
 
