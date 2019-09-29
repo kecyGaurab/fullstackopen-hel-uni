@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import Filter from './components/Filter';
-import PersonForm from './components/PersonForm';
-import PersonList from './components/PersonList';
+import { ReactComponent as Logo } from "../src/assets/old-typical-phone.svg";
+import Filter from './components/filter/Filter';
+import PersonForm from './components/personform/PersonForm';
+import PersonList from './components/personlist/PersonList';
 import numberService from './services/numbers';
-import Notification from './components/notification';
-import ErrorNotification from './components/error-notification';
+import Notification from './components/notification/notification';
+import ErrorNotification from './components/notification/error-notification';
 import './App.css';
 
 const App = () => {
@@ -58,41 +59,30 @@ const App = () => {
               setMessage(null);
             }, 5000);
           })
-          .catch(error => {(
-            setErrorMessage(error.response.data.error));
+          .catch(error => {
+            setErrorMessage(error.response.data.error);
             setTimeout(() => {
               setErrorMessage(null);
             }, 5000);
           });
     } else {
-      numberService.create(nameObj).then(returnedName => {
-        setPersons(persons.concat(returnedName));
+      numberService
+        .create(nameObj)
+        .then(returnedName => {
+          setPersons(persons.concat(returnedName));
 
-        setMessage(`${nameObj.name} has been added to the phonebook`);
-        setTimeout(() => {
-          setMessage(null);
-        }, 5000);
+          setMessage(`${nameObj.name} has been added to the phonebook`);
+          setTimeout(() => {
+            setMessage(null);
+          }, 5000);
+        })
+        .catch(error => {
+          setErrorMessage(error.response.data.error);
+          setTimeout(() => {
+            setErrorMessage(null);
+          }, 5000);
+        });
 
-      })
-      .catch(error => {
-        setErrorMessage(
-          error.response.data.error
-        )
-        setTimeout(() => {
-          setErrorMessage(null)
-        }, 5000)
-      
-      })
-
-
-      // .catch(error =>{
-      //   // console.log('the error is as :',error.response.data.error)
-      //   setErrorMessage(error.response.data.error)
-      //   setTimeout(() => {
-      //   setMessage(null);
-      //   }, 5000)})
-      
-      
     }
   };
 
@@ -126,23 +116,40 @@ const App = () => {
 
   return (
     <div>
-      <h2 className="header">Phonebook</h2>
-      <Notification message={message} />
-      <ErrorNotification errorMessage={errorMessage} />
-      <Filter handleFilter={handleFilter} />
-      <h2>Add a new</h2>
-      <PersonForm
-        resetForm={resetForm}
-        handleNameChange={handleNameChange}
-        handleNumberChange={handleNumberChange}
-        handleSubmit={handleSubmit}
-      />
-      <h2>Numbers</h2>
-      <PersonList
-        persons={persons}
-        filteredName={filteredName}
-        deleteContact={deleteContact}
-      />
+      <div className="nav-bar">
+      <div className="logo-container">
+        <Logo className="logo"/>
+        </div>
+        <h1>Phonebook</h1>
+      </div>
+
+      <div className="pop-up">
+        <Notification message={message} />
+        <ErrorNotification errorMessage={errorMessage} />
+      </div>
+      <div className="container">
+        <Filter handleFilter={handleFilter} />
+        <div className="cards">
+          <div className="add-contact-card">
+            <h2 className="title">Add a new</h2>
+            <PersonForm
+              resetForm={resetForm}
+              handleNameChange={handleNameChange}
+              handleNumberChange={handleNumberChange}
+              handleSubmit={handleSubmit}
+            />
+          </div>
+          <div className="info-card">
+            <h2 className="title" id="info-field">Numbers</h2>
+
+            <PersonList
+              persons={persons}
+              filteredName={filteredName}
+              deleteContact={deleteContact}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

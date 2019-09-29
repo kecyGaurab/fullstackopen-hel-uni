@@ -1,0 +1,35 @@
+.inputField{
+    text-align:center;
+    padding:5px;
+    margin-bottom: 10px;
+    
+}
+.submit-button{
+    display:flex;
+    justify-content: space-between;
+    
+}
+
+.submit-button>button{
+  border:none;
+  border-radius: 4px;
+  padding: 5px 20px;
+  margin-top:15px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: white;
+  background-color: darkblue;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+#add:hover{
+    background-color: rgb(9, 116, 55);
+    cursor: pointer;
+  }
+#clear:hover{
+    background-color: rgb(98, 15, 153);
+    cursor: pointer;
+  }
+

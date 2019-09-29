@@ -2,138 +2,74 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
 
-.notification {
-  color: green;
-  padding: 5px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background: lightgrey;
-  border-style: solid;
-  border-radius: 5px;
-  border: green;
-  display: block;
-}
-.error {
-  color: red;
-  padding: 5px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background: lightgrey;
-  border-style: solid;
-  border-radius: 5px;
-  border: red;
-  display: block;
-}
+
 
 .form {
   font-family: 'Fira Sans Condensed', sans-serif;
-
-  overflow-y: scroll;
   padding-bottom: 1.25rem;
 }
 .filter {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
-.contact {
-  font-family: 'Fira Sans Condensed', sans-serif;
+
+
+.nav-bar{
+ font-family: 'Fira Sans Condensed', sans-serif;
+ color:darkblue;
+ margin-left:30px;
+ width: 100%;
+ margin-top:auto;
+ display:flex;
+ flex-direction: row;
+
 }
 
-.input {
-  margin-left: 0.5em;
-  margin-bottom: 0.2em;
+.container{
+  min-width:100%
+}
+.cards{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
 }
 
-.header {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  height: 70px;
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.add-contact-card {
+  border-radius: 5px;
+  padding:10px 45px;
+  margin: 1%;
+  -webkit-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  -moz-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
 }
 
-.button {
-  display: inline-block;
-  padding: 0.3em 1.2em;
-  margin: 0.2em 0.5em 0.5em 0;
-  border-radius: 2em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  background-color: #11547e;
+.info-card{
+  border-radius: 5px;
+  padding:10px 45px;
+  margin: 1%;
+  -webkit-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  -moz-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+
+}
+.title{
+  background:darkblue;
+  padding:5px;
   text-align: center;
-  transition: all 0.2s;
-}
-.button:hover {
-  background-color: red;
+  border-start-end-radius: 5px;
+  color:white;
 }
 
-.add {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ffffff;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: black;
-  text-align: center;
-  transition: all 0.2s;
+#info-field{
+  padding-left: 3em;
+  padding-right: 3em;
 }
-.add:hover {
-  color: #000000;
-  background-color: green;
-}
-.clear {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ffffff;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: black;
-  text-align: center;
-  transition: all 0.2s;
-}
-.clear:hover {
-  color: #000000;
-  background-color: blue;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-container {
+  height: 80%;
+  width: 71px;
+  padding: 15px;
 }
