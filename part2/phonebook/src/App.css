@@ -2,50 +2,11 @@
   text-align: center;
 }
 
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-/* .App-header {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
 .App-link {
   color: #61dafb;
 }
 
-.notification {
-  color: green;
-  padding: 5px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background: lightgrey;
-  border-style: solid;
-  border-radius: 5px;
-  border: green;
-  display: block;
-}
-.error {
-  color: red;
-  padding: 5px;
-  font-size: 20px;
-  margin-bottom: 10px;
-  background: lightgrey;
-  border-style: solid;
-  border-radius: 5px;
-  border: red;
-  display: block;
-}
+
 
 .form {
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -54,9 +15,7 @@
 .filter {
   font-family: 'Fira Sans Condensed', sans-serif;
 }
-.contact {
-  font-family: 'Fira Sans Condensed', sans-serif;
-}
+
 
 .nav-bar{
  font-family: 'Fira Sans Condensed', sans-serif;
@@ -64,45 +23,11 @@
  margin-left:30px;
  width: 100%;
  margin-top:auto;
+ display:flex;
+ flex-direction: row;
 
 }
 
-
-
-
-
-/* .header {
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-} */
-
-
-.button:hover {
-  background-color: red;
-}
-
-
-
-.add:hover {
-  color: #000000;
-  background-color: green;
-}
-
-.clear:hover {
-  color: #000000;
-  background-color: blue;
-}
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 .container{
   min-width:100%
 }
@@ -113,15 +38,24 @@
   flex-direction: row;
 }
 
-.card {
+.add-contact-card {
   border-radius: 5px;
-  padding:10px 25px;
+  padding:10px 45px;
   margin: 1%;
   -webkit-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
--moz-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  -moz-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
 }
 
+.info-card{
+  border-radius: 5px;
+  padding:10px 45px;
+  margin: 1%;
+  -webkit-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  -moz-box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+  box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
+
+}
 .title{
   background:darkblue;
   padding:5px;
@@ -130,3 +64,12 @@ box-shadow: -1px 0px 12px 1px rgba(0,0,0,0.54);
   color:white;
 }
 
+#info-field{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.logo-container {
+  height: 80%;
+  width: 71px;
+  padding: 15px;
+}

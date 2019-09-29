@@ -1,4 +1,5 @@
 import React from 'react';
+import './PersonList.css'
 
 const PersonList = props => {
   const filter = props.persons
@@ -10,15 +11,15 @@ const PersonList = props => {
     })
     .map(person => (
       <div key={person.id} className="contact">
-        <span>
+       
           {person.name} {person.number}
           <button
             className="delete-button"
             value={person.name}
             onClick={() => props.deleteContact(person.id, person.name)}>
-            <label>delete</label>
+            delete
           </button>
-        </span>
+        
       </div>
     ));
   return <div>{filter}</div>;

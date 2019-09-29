@@ -24,5 +24,12 @@
   transition: all 0.2s;
 }
 
-
+#add:hover{
+    background-color: rgb(9, 116, 55);
+    cursor: pointer;
+  }
+#clear:hover{
+    background-color: rgb(98, 15, 153);
+    cursor: pointer;
+  }
 

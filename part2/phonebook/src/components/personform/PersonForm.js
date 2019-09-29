@@ -25,10 +25,10 @@ const PersonForm = props => {
         </div>
 
         <div className = "submit-button">
-          <button  type="submit">
+          <button id="add" type="submit">
             add
           </button>
-          <button type="reset">
+          <button id="clear" type="reset">
             clear
           </button>
         </div>
