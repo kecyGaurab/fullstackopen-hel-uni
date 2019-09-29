@@ -1,10 +1,10 @@
 import React from 'react';
+import './Filter.css'
 
 const Filter = props => {
   return (
-    <div className="filter">
-      Filter shown with
-      <input value={props.filteredName} onChange={props.handleFilter} />
+    <div className="search-field">
+      <input placeholder= "Search Contact..." value={props.filteredName} onChange={props.handleFilter} />
     </div>
   );
 };

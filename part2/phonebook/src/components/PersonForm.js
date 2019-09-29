@@ -1,4 +1,5 @@
 import React from 'react';
+import './PersonForm.css'
 
 const PersonForm = props => {
   return (
@@ -6,28 +7,28 @@ const PersonForm = props => {
       <form className="form" onSubmit={props.handleSubmit} onReset={props.resetForm}>
         <div>
           <div>
-            <label>Name</label>
             <input
-              className="input"
+              className="inputField"
+              placeholder = "Name"
               value={props.newName}
               onChange={props.handleNameChange}
             />
           </div>
           <div>
-            <label>Number</label>
             <input
-              className="input"
+              className="inputField"
               value={props.newNumber}
+              placeholder = "Number"
               onChange={props.handleNumberChange}
             />
           </div>
         </div>
 
-        <div>
-          <button className="add" type="submit">
+        <div className = "submit-button">
+          <button  type="submit">
             add
           </button>
-          <button className="clear" type="reset">
+          <button type="reset">
             clear
           </button>
         </div>

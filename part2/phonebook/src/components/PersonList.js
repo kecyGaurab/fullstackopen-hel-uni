@@ -13,7 +13,7 @@ const PersonList = props => {
         <span>
           {person.name} {person.number}
           <button
-            className="button"
+            className="delete-button"
             value={person.name}
             onClick={() => props.deleteContact(person.id, person.name)}>
             <label>delete</label>

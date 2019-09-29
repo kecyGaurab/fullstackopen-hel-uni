@@ -1,0 +1,11 @@
+.search-field {
+    display:flex;
+    justify-content: center;
+    margin:20px 0;
+}
+
+.search-field>input{
+    padding:10px;
+    text-align:center;
+    width: 33.33em;
+}
